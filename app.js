@@ -1,8 +1,37 @@
 import express from 'express';
 import { config } from './src/config/config.js';
+import path from 'path';
+import connectMongo from './src/models/mongoose.js';
+import mongoSanitize from "express-mongo-sanitize";
+import methodOverride from 'method-override'
+import cookieParser from "cookie-parser";
 
 const app = express();
 
+
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Connect to MongoDB
+connectMongo();
+
+
+// Set up view engine
+app.set("view engine", "ejs"); //temporarly for testing purposes
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.set("views", path.join(__dirname, "../public/views"));
+
+// some middlewares
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser())
+app.use(methodOverride("_method"));
+app.use(mongoSanitize());
+
+
+app.disable('x-powered-by');
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
