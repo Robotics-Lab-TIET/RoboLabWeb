@@ -9,20 +9,13 @@ import adminRouter from './src/routes/admin.js';
 
 const app = express();
 
-
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-console.log(process.env.DB_URI);
+
+
 // Connect to MongoDB
 connectMongo();
 
-
-// Set up view engine
-app.set("view engine", "ejs"); //temporarly for testing purposes
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = path.dirname(__filename);
-// app.set("views", path.join(__dirname, "../public/views"));
 
 // some middlewares
 app.use(express.json());
@@ -33,7 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(adminRouter);
 
-// app.disable('x-powered-by');
+app.disable('x-powered-by');
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });

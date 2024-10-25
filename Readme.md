@@ -12,7 +12,7 @@ npm i
 
 create .env file
 specify port as PORT and MongoDb srv as 
-DB_URI=put Your srv here 
+DB_URI=put Your srv here ,<br>
  **to start server do**
  ```bash 
  npm start
