@@ -10,7 +10,7 @@ export const config = {
     },
 
     database: {
-        uri: process.env.DB_URI || 'mongodb://localhost:27017/myapp',
+        uri: process.env.DB_URI ||'mongodb://localhost:27017/myapp',
         options: {
             useNewUrlParser: true,
             useUnifiedTopology: true,

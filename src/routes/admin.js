@@ -1,12 +1,11 @@
 import mongoose from "mongoose";
-import admin from "../models/admin";
-import bcrypt from "bcrypt";
+import admin from "../models/admin.js";
+// import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import express from "express";
-import adminSchema from "../utils/zod/zodSchemaAdmin";
+import adminSchema from "../utils/zod/zodSchemaAdmin.js";
 import dotenv from "dotenv";
-import { config } from "../config/config";
-
+import { config } from "../config/config.js";
 
 
 const router = express.Router();
@@ -24,7 +23,7 @@ router.route("/login")
         }
         const token = jwt.sign({ userName }, config.auth.jwtSecret);
         res.send({ token });
-
+        
     });
-    user=new admin({userName:devansh,password:pass});
-    user.save();
+
+export default router;

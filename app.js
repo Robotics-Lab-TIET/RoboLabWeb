@@ -5,6 +5,7 @@ import connectMongo from './src/models/mongoose.js';
 // import mongoSanitize from "express-mongo-sanitize";
 // import methodOverride from 'method-override'
 // import cookieParser from "cookie-parser";
+import adminRouter from './src/routes/admin.js';
 
 const app = express();
 
@@ -12,10 +13,10 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-console.log("Hello World!");
+console.log(process.env.DB_URI);
 // Connect to MongoDB
 connectMongo();
-console.log("Hello World! after mongo");
+
 
 // Set up view engine
 app.set("view engine", "ejs"); //temporarly for testing purposes
@@ -30,6 +31,7 @@ app.use(express.urlencoded({ extended: true }));
 // app.use(methodOverride("_method"));
 // app.use(mongoSanitize());
 
+app.use(adminRouter);
 
 // app.disable('x-powered-by');
 app.get('/', (req, res) => {
