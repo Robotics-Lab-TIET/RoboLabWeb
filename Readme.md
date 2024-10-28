@@ -10,15 +10,12 @@ install dependices
 npm i 
 ```
 
-create .env file
-specify port as PORT and MongoDb srv as 
-DB_URI=put Your srv here ,<br>
- **to start server do**
+create .env file,<br>
+copy past template from .env.sample and fill in ur data
+<br>to start server do
  ```bash 
- npm start
+ npm start // for production
+ npm run dev // for development 
  ```
 
-by default npm start will start nodemon on app.js
-
-
-For more information,  [please read this ](plane.md).
+For more information,  [read this ](plane.md).
