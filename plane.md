@@ -1,4 +1,3 @@
-
 # Things that need to done in backend
 
 please read this file in vs code having formatting issue in File Structure on github (install any markdown preview extension)
@@ -11,12 +10,11 @@ admin model, project model
 
 /projects with (CRUD)
 /adminlogin (to loginto admin dashboard)
-/admin register (only in dev mode )
+/admin register(available if a already logged in 
 
 ## 3) Auth
 
 auth for admin dashboard will do basic jwt and refresh tokens if i have time
-
 
 please do mention if u think anything needde to the backend
 
