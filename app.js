@@ -6,7 +6,8 @@ import connectMongo from './src/models/mongoose.js';
 // import methodOverride from 'method-override'
 // import cookieParser from "cookie-parser";
 import adminRouter from './src/routes/admin.js';
-
+import cors from "cors";
+import projectsRouter from './src/routes/projects.js';
 const app = express();
 
 app.use(express.json());
@@ -19,12 +20,14 @@ connectMongo();
 
 // some middlewares
 app.use(express.json());
+app.use(cors( ))
 app.use(express.urlencoded({ extended: true }));
 // app.use(cookieParser())
 // app.use(methodOverride("_method"));
 // app.use(mongoSanitize());
 
 app.use(adminRouter);
+app.use(projectsRouter);  
 
 app.disable('x-powered-by');
 app.get('/', (req, res) => {
