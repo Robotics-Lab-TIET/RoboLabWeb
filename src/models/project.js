@@ -17,23 +17,37 @@ const projectSchema = new mongoose.Schema({
         type: Boolean,
         default: true
     },
-    imageData: [{
+    imageData: {
         profileImage: {
-            type: String,
-            required: true,
+            imageName: {
+                type: String,
+                required: true,
+            },
+            imageUrl: {
+                type: String,
+                required: true,
+            },
+            imageOrder: {
+                type: Number,
+            }
+
         },
-        imageName: {
-            type: String,
-            required: true,
-        },
-        imageUrl: {
-            type: String,
-            required: true,
-        },
-        imageOrder: {
-            type: Number,
-        }
-    }],
+        normalImages: [
+            {
+                imageName: {
+                    type: String,
+                    required: true,
+                },
+                imageUrl: {
+                    type: String,
+                    required: true,
+                },
+                imageOrder: {
+                    type: Number,
+                }
+            }
+        ]
+    },
     videoData: [{
         videoName: {
             type: String,
