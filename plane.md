@@ -18,6 +18,9 @@ auth for admin dashboard will do basic jwt and refresh tokens if i have time
 
 please do mention if u think anything needde to the backend
 
+## addons
+setup cdn(optional probably not doing, as i dont see any need)
+
 # File structure
 
 /project-root
