@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const projectSchema = new mongoose.Schema({
-    name: {
+    projectName: {
         type: String,
         required: true,
     },
@@ -15,23 +15,39 @@ const projectSchema = new mongoose.Schema({
     },
     display: {
         type: Boolean,
-        required: true,
         default: true
     },
-    imageData: [{
-        imageName: {
-            type: String,
-            required: true,
+    imageData: {
+        profileImage: {
+            imageName: {
+                type: String,
+                required: true,
+            },
+            imageUrl: {
+                type: String,
+                required: true,
+            },
+            imageOrder: {
+                type: Number,
+            }
+
         },
-        imageUrl: {
-            type: String,
-            required: true,
-        },
-        imageOrder: {
-            type: Number,
-            required: true,
-        }
-    }],
+        normalImages: [
+            {
+                imageName: {
+                    type: String,
+                    required: true,
+                },
+                imageUrl: {
+                    type: String,
+                    required: true,
+                },
+                imageOrder: {
+                    type: Number,
+                }
+            }
+        ]
+    },
     videoData: [{
         videoName: {
             type: String,
@@ -43,7 +59,6 @@ const projectSchema = new mongoose.Schema({
         },
         videoOrder: {
             type: Number,
-            required: true,
         }
     }]
 }, {
